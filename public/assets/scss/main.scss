@@ -7,39 +7,84 @@
 
 body {
     background-color: $bg-color;
+    font-family: $font-stack;
 }
-
 
 .container{
     margin: 100px auto;
-    width: 60%;
+    min-width: 60%;
+    max-width: 1024px;
+}
 
-    .btn-quote{
-        text-decoration: none;
+.btn-quote{
+    text-decoration: none;
+    display: block;
+    margin: 50px auto;
+    border: none;
+    border-radius: 5px;
+    background-color: $btn-color;
+    color: #ffff;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.btn-quote:active, .btn-quote:focus{
+    border: none;
+}
+
+.btn-quote:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.q-container{
+    background-color: $bg-container;
+    padding: 50px;
+
+    .q-text{
+        font-size: 2em;
     }
 
-    .q-container{
-        background-color: $bg-container;
-        // height: 400px;
-        padding: 50px;
+    .q-author{
+        margin-top: 20px;
+        font-size: 1.5em; 
+        text-align: right;
+    }
+}
 
+
+@media only screen and (max-width : 1224px) {
+  
+}
+
+@media only screen and (max-device-width : 768px){
+
+    .container{
+        margin: 50px auto;
+    }
+
+    .btn-quote{
+        margin: 40px auto;
+    }
+    .q-container{
+        padding: 20px;
+        
         .q-text{
-            font-size: 2em;
+            font-size: 1em;
         }
 
         .q-author{
             margin-top: 20px;
-            font-size: 1.5em; 
+            font-size: .8em; 
         }
     }
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
 
 }
 
 
-.btn-quote{
-    background-color: $btn-color;
-    color: #ffff;
-    padding: 10px;
-    border: 0px solid white;
-    border-radius: 3px;
-}
+

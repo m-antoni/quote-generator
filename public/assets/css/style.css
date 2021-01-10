@@ -3,27 +3,55 @@
   padding: 0; }
 
 body {
-  background-color: #a8dadc; }
+  background-color: #2176ff;
+  font-family: "Roboto", sans-serif; }
 
 .container {
   margin: 100px auto;
-  width: 60%; }
-  .container .btn-quote {
-    text-decoration: none; }
-  .container .q-container {
-    background-color: #caf0f8;
-    padding: 50px; }
-    .container .q-container .q-text {
-      font-size: 2em; }
-    .container .q-container .q-author {
-      margin-top: 20px;
-      font-size: 1.5em; }
+  min-width: 60%;
+  max-width: 1024px; }
 
 .btn-quote {
+  text-decoration: none;
+  display: block;
+  margin: 50px auto;
+  border: none;
+  border-radius: 5px;
   background-color: #4cc9f0;
   color: #ffff;
   padding: 10px;
-  border: 0px solid white;
   border-radius: 3px; }
+
+.btn-quote:active, .btn-quote:focus {
+  border: none; }
+
+.btn-quote:hover {
+  cursor: pointer;
+  transform: scale(1.1); }
+
+.q-container {
+  background-color: #caf0f8;
+  padding: 50px; }
+  .q-container .q-text {
+    font-size: 2em; }
+  .q-container .q-author {
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-align: right; }
+
+@media only screen and (max-device-width: 768px) {
+  .container {
+    margin: 50px auto; }
+
+  .btn-quote {
+    margin: 40px auto; }
+
+  .q-container {
+    padding: 20px; }
+    .q-container .q-text {
+      font-size: 1em; }
+    .q-container .q-author {
+      margin-top: 20px;
+      font-size: .8em; } }
 
 /*# sourceMappingURL=style.css.map */

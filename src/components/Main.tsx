@@ -7,14 +7,17 @@ function Main () {
         getQuotes();
     },[])
 
-    const quoteDefault = {
+    const colors: string[] = ['#fca311', '#81b29a', '#4a4e69', '#00509d', '#e5383b', '#463f3a','#ff97b7','#0d1b2a', '#049a8f', '#ff8c61'];
+
+    const defaultData = {
         text: 'You do not rise to the level of your goals. You fall to the level of your systems.',
-        author: 'James Clear'
+        author: 'James Clear',
     } 
 
-    const [quote, setQuote] = useState(quoteDefault);
+    const [quote, setQuote] = useState(defaultData);
     const [quoteList, setQuoteList] = useState([]);
 
+    // Get Quotes from API
     const getQuotes = async () => {
         try {
             const quotes:any = await axios.get('https://type.fit/api/quotes');
@@ -24,18 +27,24 @@ function Main () {
         }
     }
 
-
-    const generateQuote = () => {
+    // Generate Quote
+    const generateQuote = (): void => {
         setQuote(quoteList[Math.floor(Math.random() * quoteList.length)]);
+        changeBackground();
+    }
+
+    // Change Background Color
+    const changeBackground = (): void => {
+        const setColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.style.backgroundColor = setColor;
     }
  
     return (
         <div className="container">
-            <a href="#" onClick={generateQuote} className="btn-quote">GET QUOTE</a>
-
+            <button onClick={generateQuote} className="btn-quote">GET QUOTE</button>
             <div className="q-container">
                 <div className="q-text">{quote.text}</div>
-                <div className="q-author">~ {quote.author} ~</div>
+                <div className="q-author">~ {quote.author ? quote.author : 'Unknown author'} ~</div>
             </div>
         </div>
     )
