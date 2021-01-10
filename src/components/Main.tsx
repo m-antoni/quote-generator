@@ -38,13 +38,23 @@ function Main () {
         const setColor = colors[Math.floor(Math.random() * colors.length)];
         document.body.style.backgroundColor = setColor;
     }
+
+    // Copy 
+    const copyToClipboard = ():void => {
+        // const el = this.textArea
+        // el.select()
+        // document.execCommand("copy")
+        // this.setState({copySuccess: true})
+        console.log('Copy')
+    }
  
     return (
         <div className="container">
             <button onClick={generateQuote} className="btn-quote">GET QUOTE</button>
             <div className="q-container">
-                <div className="q-text">{quote.text}</div>
-                <div className="q-author">~ {quote.author ? quote.author : 'Unknown author'} ~</div>
+                <div className="q-copy" onClick={copyToClipboard}><i className="fa fa-copy"></i></div>
+                <div className="q-text">"{quote.text}"</div>
+                <div className="q-author">~ {quote.author ? quote.author : 'Unknown'} ~</div>
             </div>
         </div>
     )

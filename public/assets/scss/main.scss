@@ -20,12 +20,11 @@ body {
     text-decoration: none;
     display: block;
     margin: 50px auto;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: $btn-color;
     color: #ffff;
-    padding: 10px;
-    border-radius: 3px;
 }
 
 .btn-quote:active, .btn-quote:focus{
@@ -40,15 +39,32 @@ body {
 .q-container{
     background-color: $bg-container;
     padding: 50px;
+    box-shadow: 8px 8px 5px #b3c5d7;
+    border-radius: 10px;
+    margin: 0px 20px;
 
     .q-text{
         font-size: 2em;
     }
 
     .q-author{
-        margin-top: 20px;
+        color: #6a6b83;
+        margin-top: 30px;
         font-size: 1.5em; 
         text-align: right;
+    }
+
+    .q-copy{
+        text-align: right;
+        position: relative;
+        top: 10;
+        right: 0;
+        color: $btn-color;
+        margin-bottom: 10px;
+    }
+
+    .q-copy:hover{
+        cursor: pointer;
     }
 }
 
@@ -68,7 +84,7 @@ body {
     }
     .q-container{
         padding: 20px;
-        
+        margin: 0px 20px;
         .q-text{
             font-size: 1em;
         }

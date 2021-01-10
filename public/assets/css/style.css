@@ -15,12 +15,11 @@ body {
   text-decoration: none;
   display: block;
   margin: 50px auto;
+  padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #4cc9f0;
-  color: #ffff;
-  padding: 10px;
-  border-radius: 3px; }
+  color: #ffff; }
 
 .btn-quote:active, .btn-quote:focus {
   border: none; }
@@ -31,13 +30,26 @@ body {
 
 .q-container {
   background-color: #caf0f8;
-  padding: 50px; }
+  padding: 50px;
+  box-shadow: 8px 8px 5px #b3c5d7;
+  border-radius: 10px;
+  margin: 0px 20px; }
   .q-container .q-text {
     font-size: 2em; }
   .q-container .q-author {
-    margin-top: 20px;
+    color: #6a6b83;
+    margin-top: 30px;
     font-size: 1.5em;
     text-align: right; }
+  .q-container .q-copy {
+    text-align: right;
+    position: relative;
+    top: 10;
+    right: 0;
+    color: #4cc9f0;
+    margin-bottom: 10px; }
+  .q-container .q-copy:hover {
+    cursor: pointer; }
 
 @media only screen and (max-device-width: 768px) {
   .container {
@@ -47,7 +59,8 @@ body {
     margin: 40px auto; }
 
   .q-container {
-    padding: 20px; }
+    padding: 20px;
+    margin: 0px 20px; }
     .q-container .q-text {
       font-size: 1em; }
     .q-container .q-author {
