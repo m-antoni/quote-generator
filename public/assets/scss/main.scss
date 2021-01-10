@@ -1,0 +1,45 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+
+.container{
+    margin: 100px auto;
+    width: 60%;
+
+    .btn-quote{
+        text-decoration: none;
+    }
+
+    .q-container{
+        background-color: $bg-container;
+        // height: 400px;
+        padding: 50px;
+
+        .q-text{
+            font-size: 2em;
+        }
+
+        .q-author{
+            margin-top: 20px;
+            font-size: 1.5em; 
+        }
+    }
+
+}
+
+
+.btn-quote{
+    background-color: $btn-color;
+    color: #ffff;
+    padding: 10px;
+    border: 0px solid white;
+    border-radius: 3px;
+}
