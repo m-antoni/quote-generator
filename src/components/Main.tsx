@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Main () {
+interface Props {
+    colors: string[];
+    default_quote: {
+        text: string,
+        author: string
+    };
+}
+
+const Main: React.FC<Props> = ({ colors, default_quote }) => {
 
     useEffect(() => {
         getQuotes();
     },[])
 
-    const colors: string[] = ['#fca311', '#81b29a', '#4a4e69', '#00509d', '#e5383b', '#463f3a','#ff97b7','#0d1b2a', '#049a8f', '#ff8c61'];
-
-    const defaultData = {
-        text: 'You do not rise to the level of your goals. You fall to the level of your systems.',
-        author: 'James Clear',
-    } 
-
-    const [quote, setQuote] = useState(defaultData);
-    const [quoteList, setQuoteList] = useState([]);
+    const [quote, setQuote] = useState<Props['default_quote']>(default_quote);
+    const [quoteList, setQuoteList] = useState<any[]>([]);
 
     // Get Quotes from API
     const getQuotes = async () => {
