@@ -22,7 +22,7 @@ body {
     margin: 50px auto;
     padding: 12px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: $btn-color;
     color: #ffff;
 }
@@ -36,35 +36,56 @@ body {
     transform: scale(1.1);
 }
 
+.copy-message{
+    margin: auto;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right:0;
+    text-align: center;
+    width: auto;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    background-color: $btn-green;
+    color: #ffff;
+}
+
 .q-container{
     background-color: $bg-container;
-    padding: 50px;
-    box-shadow: 8px 8px 5px #b3c5d7;
+    padding: 30px 50px 50px 50px;
+    box-shadow: 8px 8px 5px $bg-container-shadow;
     border-radius: 10px;
     margin: 0px 20px;
 
     .q-text{
         font-size: 2em;
+        margin-top: 40px !important; 
     }
 
     .q-author{
-        color: #6a6b83;
+        color: $author-color;
         margin-top: 30px;
         font-size: 1.5em; 
         text-align: right;
     }
 
-    .q-copy{
-        text-align: right;
+    .copy-btn{
+        text-decoration: none;
+        display: block;
         position: relative;
-        top: 10;
-        right: 0;
-        color: $btn-color;
-        margin-bottom: 10px;
+        float: right;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: $btn-green;
+        color: #ffff;
     }
 
-    .q-copy:hover{
+    .copy-btn:hover{
         cursor: pointer;
+        background-color: #037758;
     }
 }
 
@@ -76,7 +97,7 @@ body {
 @media only screen and (max-device-width : 768px){
 
     .container{
-        margin: 50px auto;
+        margin: 70px auto;
     }
 
     .btn-quote{
@@ -84,23 +105,21 @@ body {
     }
     .q-container{
         padding: 20px;
-        margin: 0px 20px;
         .q-text{
             font-size: 1em;
+            margin-top: 40px !important; 
         }
 
         .q-author{
             margin-top: 20px;
-            font-size: .8em; 
+            font-size: .9em; 
         }
     }
 }
 
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-
+@media only screen and (max-device-width : 480px) {
+    .q-text{
+        margin-top: 40px !important; 
+    }
 
 }
-
-
-

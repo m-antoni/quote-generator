@@ -1,59 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 interface Props {
-    colors: string[];
-    default_quote: {
-        text: string,
-        author: string
-    };
+    quote: { text: string, author: string };
+    isCopy: boolean;
+    changeBackground: () => void;
+    generateQuote: () => void;
+    copyToClipboard: () => void;
 }
 
-const Main: React.FC<Props> = ({ colors, default_quote }) => {
-
-    useEffect(() => {
-        getQuotes();
-    },[])
-
-    const [quote, setQuote] = useState<Props['default_quote']>(default_quote);
-    const [quoteList, setQuoteList] = useState<any[]>([]);
-
-    // Get Quotes from API
-    const getQuotes = async () => {
-        try {
-            const quotes:any = await axios.get('https://type.fit/api/quotes');
-            setQuoteList(quotes.data);
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    // Generate Quote
-    const generateQuote = (): void => {
-        setQuote(quoteList[Math.floor(Math.random() * quoteList.length)]);
-        changeBackground();
-    }
-
-    // Change Background Color
-    const changeBackground = (): void => {
-        const setColor = colors[Math.floor(Math.random() * colors.length)];
-        document.body.style.backgroundColor = setColor;
-    }
-
-    // Copy 
-    const copyToClipboard = ():void => {
-        // const el = this.textArea
-        // el.select()
-        // document.execCommand("copy")
-        // this.setState({copySuccess: true})
-        console.log('Copy')
-    }
- 
+const Main: React.FC<Props> = ({ quote, generateQuote, copyToClipboard, isCopy }) => {
     return (
         <div className="container">
+            {
+                isCopy && <div className="copy-message"><i className="fa fa-check"></i> Quote Copied!</div>
+            }
             <button onClick={generateQuote} className="btn-quote">GET QUOTE</button>
             <div className="q-container">
-                <div className="q-copy" onClick={copyToClipboard}><i className="fa fa-copy"></i></div>
+                <div className="copy-btn" onClick={!isCopy ? copyToClipboard : () => {}}><i className="fa fa-copy"></i></div>
                 <div className="q-text">"{quote.text}"</div>
                 <div className="q-author">~ {quote.author ? quote.author : 'Unknown'} ~</div>
             </div>
