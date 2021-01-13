@@ -13,10 +13,11 @@ body {
   max-width: 1024px; }
 
 .btn-quote {
+  font-size: 1.2em;
   text-decoration: none;
   display: block;
   margin: 50px auto;
-  padding: 12px;
+  padding: 15px;
   border: none;
   border-radius: 5px;
   background-color: #4cc9f0;
@@ -89,6 +90,9 @@ body {
       font-size: .9em; } }
 @media only screen and (max-device-width: 480px) {
   .q-text {
-    margin-top: 40px !important; } }
+    margin-top: 40px !important; }
+
+  .copy-message {
+    font-size: 1em; } }
 
 /*# sourceMappingURL=style.css.map */
