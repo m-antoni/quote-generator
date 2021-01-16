@@ -15,11 +15,11 @@ const Main: React.FC<Props> = ({ quote, generateQuote, copyToClipboard, isCopy }
 
             <div className="q-container">
                 <div className="copy-btn" onClick={!isCopy ? copyToClipboard : () => {}}><i className="fa fa-copy"></i></div>
-                <div className="q-text">"{quote.text}"</div>
-                <div className="q-author">~ {quote.author ? quote.author : 'Unknown'} ~</div>
+                <div className="q-text wow slideInUp">"{quote.text}"</div>
+                <div className="q-author wow slideInRight">~ {quote.author ? quote.author : 'Unknown'} ~</div>
             </div>
 
-            <button onClick={generateQuote} className="btn-quote">GET QUOTE</button>
+            <button onClick={generateQuote} className="btn-quote wow zoomIn">GET QUOTE</button>
         </div>
     )
 }
