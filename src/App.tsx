@@ -28,7 +28,7 @@ const App: React.FC = () => {
   const getQuotes = async () => {
     try {
         // const quotes:any = await axios.get('https://type.fit/api/quotes'); // not working anymore
-        const quotes:any = await axios.get('http://api.quotable.io/random');
+        const quotes:any = await axios.get('https://api.quotable.io/random');
         // setQuoteList(quotes.data);
         setQuote(quotes.data);
     } catch (e) {
