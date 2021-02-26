@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-    quote: { text: string, author: string };
+    quote: { content: string, author: string };
     isCopy: boolean;
     changeBackground: () => void;
     generateQuote: () => void;
@@ -15,7 +15,7 @@ const Main: React.FC<Props> = ({ quote, generateQuote, copyToClipboard, isCopy }
 
             <div className="q-container">
                 <div className="copy-btn" onClick={!isCopy ? copyToClipboard : () => {}}><i className="fa fa-copy"></i></div>
-                <div className="q-text wow slideInUp">"{quote.text}"</div>
+                <div className="q-text wow slideInUp">"{quote.content}"</div>
                 <div className="q-author wow slideInRight">~ {quote.author ? quote.author : 'Unknown'} ~</div>
             </div>
 

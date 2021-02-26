@@ -3,21 +3,21 @@ import Main from './components/Main';
 import axios from 'axios';
 
 interface defaultQuote  {
-  text: string;
+  content: string;
   author: string;
 } 
 
 const colors: string[] = ['#fca311', '#81b29a', '#4a4e69', '#00509d', '#e5383b', '#463f3a','#ff97b7','#0d1b2a', '#049a8f', '#ff8c61'];
 
 const default_quote = {
-  text: 'You do not rise to the level of your goals. You fall to the level of your systems.',
+  content: 'You do not rise to the level of your goals. You fall to the level of your systems.',
   author: 'James Clear',
 }
 
 const App: React.FC = () => {
 
   useEffect(() => {
-      getQuotes();
+      // getQuotes();
   },[])
 
   const [quoteList, setQuoteList] = useState<any[]>([]);
@@ -27,8 +27,10 @@ const App: React.FC = () => {
   // Get Quotes from API
   const getQuotes = async () => {
     try {
-        const quotes:any = await axios.get('https://type.fit/api/quotes');
-        setQuoteList(quotes.data);
+        // const quotes:any = await axios.get('https://type.fit/api/quotes'); // not working anymore
+        const quotes:any = await axios.get('http://api.quotable.io/random');
+        // setQuoteList(quotes.data);
+        setQuote(quotes.data);
     } catch (e) {
         console.log(e)
     }
@@ -36,7 +38,8 @@ const App: React.FC = () => {
 
   // Generate Quote
   const generateQuote = (): void => {
-      setQuote(quoteList[Math.floor(Math.random() * quoteList.length)]);
+      // setQuote(quoteList[Math.floor(Math.random() * quoteList.length)]);
+      getQuotes();
       changeBackground();
       setIsCopy(false); 
   }
@@ -50,7 +53,7 @@ const App: React.FC = () => {
   // Copy 
   const copyToClipboard = async () => {
     try {
-        const copyText = `${quote.text} by ${quote.author}`;
+        const copyText = `${quote.content} by ${quote.author}`;
         await navigator.clipboard.writeText(copyText);
         setIsCopy(true);
     } catch (e) {
